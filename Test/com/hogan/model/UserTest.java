@@ -1,27 +1,20 @@
 package com.hogan.model;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.junit.Test;
 
-import com.hogan.util.HibernateUtil;
+import com.hogan.dao.UserDao;
 
 public class UserTest {
 
 	@Test
 	public void createUserTest() {
 		User user = new User();
-		user.setId(2);
+		user.setId(3);
 		user.setName("Hogan");
 		user.setPassword("password");
 		
-		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-		Session session = sessionFactory.openSession();
-		session.beginTransaction();
-		session.save(user);
-		session.getTransaction().commit();
-		session.close();
-		sessionFactory.close();
+//		UserDao.shareInstance.saveOrUpdate(user);
+		UserDao.shareInstance.delete(user);
 	}
 
 }
