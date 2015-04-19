@@ -1,19 +1,12 @@
 package com.hogan.model;
 
-public class User {
-	private Integer id;
+import com.hogan.model.base.BaseModel;
+
+public class User extends BaseModel {
 	private String name;
 	private String password;
 	
 	public User(){}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	public String getName() {
 		return name;
@@ -29,5 +22,10 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	@Override
+	public String toString() {
+		return "Id -> " + this.id + "; Name -> " + this.name + "; Password -> " + this.password;
 	}
 }
