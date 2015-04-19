@@ -19,7 +19,7 @@
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
 
-        <mapping resource="com/hogan/model/User.hbm.xml"/>
+        <mapping class="com.hogan.model.User"/> 
 
     </session-factory>
 
