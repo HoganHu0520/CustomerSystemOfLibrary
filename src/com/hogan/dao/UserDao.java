@@ -11,9 +11,8 @@ import com.hogan.model.User;
 import com.hogan.model.common.Pagination;
 
 public class UserDao extends BaseDao<User> {
-	public static UserDao shareInstance = new UserDao();
-
-	private UserDao(){}
+	
+	public UserDao() {}
 
 	public Pagination<User> query(Pagination<User> pagination) {
 		Pagination<User> resultPagination = pagination;
