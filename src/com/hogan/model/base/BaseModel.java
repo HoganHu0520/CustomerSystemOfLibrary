@@ -1,15 +1,15 @@
 package com.hogan.model.base;
 
 public class BaseModel {
-	protected Integer id;
+	protected int id;
 	
 	public BaseModel() {}
 
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 }

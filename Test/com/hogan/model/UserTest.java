@@ -19,12 +19,11 @@ public class UserTest {
 	@Test
 	public void createUserTest() {
 		User user = new User();
-		user.setId(3);
 		user.setName("Hogan");
 		user.setPassword("password");
+		user.setUserId("1127160850");
 		
-//		UserDao.shareInstance.saveOrUpdate(user);
-		userDao.delete(user);
+		userDao.saveOrUpdate(user);
 	}
 	
 	@Test

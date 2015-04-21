@@ -31,4 +31,22 @@ public class UserDao extends BaseDao<User> {
 		resultPagination.setResults(list);
 		return resultPagination;
 	}
+	
+	public User getByUserId(User user) {
+		User dbUser = null;
+		
+		this.executeAction(new DaoProxy() {
+			
+			@Override
+			public void action(Session session) {
+				Query query = session.createQuery("select user from User user where user.userId=?")
+						.setParameter(0, user.getUserId());
+				result = query.list().get(0);
+			}
+		});
+		
+		dbUser = (User) result;
+		result = null;
+		return dbUser;
+	}
 }

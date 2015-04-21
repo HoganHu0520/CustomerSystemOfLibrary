@@ -2,6 +2,8 @@ package com.hogan.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,12 +14,14 @@ import com.hogan.model.base.BaseModel;
 public class User extends BaseModel {
 	private String name;
 	private String password;
+	private String userId;
 	
 	public User(){}
 	
 	@Override
 	@Id
-	public Integer getId() {
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	public int getId() {
 		return super.id;
 	}
 
@@ -39,8 +43,18 @@ public class User extends BaseModel {
 		this.password = password;
 	}
 	
+	@Column(name = "user_id", length = 45)
+	public String getUserId() {
+		return userId;
+	}
+	
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	
 	@Override
 	public String toString() {
-		return "Id -> " + this.id + "; Name -> " + this.name + "; Password -> " + this.password;
+		return "Id -> " + this.id + "; Name -> " + this.name + "; Password -> " + this.password + "; UserId -> " + this.userId;
 	}
 }
+
