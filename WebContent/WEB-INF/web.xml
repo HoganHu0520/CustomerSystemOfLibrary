@@ -5,7 +5,7 @@
 	id="WebApp_ID" version="2.5">
 	<display-name>login</display-name>
 	<welcome-file-list>
-		<welcome-file>hello.jsp</welcome-file>
+		<welcome-file>static/welcome.html</welcome-file>
 	</welcome-file-list>
 	<error-page>
 		<error-code>400</error-code>
@@ -29,6 +29,17 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
+	<filter>
+		<display-name>AppContextFilter</display-name>
+		<filter-name>AppContextFilter</filter-name>
+		<filter-class>com.hogan.filter.AppContextFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>AppContextFilter</filter-name>
+		<url-pattern>/page/*</url-pattern>
+	</filter-mapping>
+  
 	<servlet>
 		<servlet-name>springmvc</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
