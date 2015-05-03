@@ -101,7 +101,7 @@
               <input type="password" name="password" id="password"/>
           </div>
 	      
-	      <div id="errorMsg" class="line" style="margin-top: 10px; visibility: <%=visibility %>;color: red;font-size: 14px;">
+	      <div id="errorMsg" class="line" style="margin:auto; margin-top: 10px; visibility: <%=visibility %>;color: red;font-size: 14px;">
             <%=tipMessage %>
           </div>
 	     

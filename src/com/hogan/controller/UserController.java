@@ -23,7 +23,7 @@ import com.hogan.util.StringUtil;
 public class UserController extends BaseController {
 
 	private final String LOGIN_JSP = "login";
-	private final String BOOK_MYBOOK_PAGE = "book/myBook";
+	private final String BOOK_MYBOOK_PAGE = "book/mybook";
 
 	@Autowired
 	private UserService userService;
@@ -71,7 +71,7 @@ public class UserController extends BaseController {
 				go = go + "?" + queryString;
 			}
 
-			RedirectView redirectView = StringUtil.isEmpty(go) ? this
+			RedirectView redirectView = StringUtil.isEmpty(go) || go.equals("null") ? this
 					.getRedirectView(BOOK_MYBOOK_PAGE) : new RedirectView(
 					AppContext.getContextPath() + "/" + go);
 			modelAndView.setView(redirectView);

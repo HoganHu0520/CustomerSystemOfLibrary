@@ -1,0 +1,67 @@
+@charset "utf-8";
+
+body{
+	background: #fff;
+}
+
+/*header part*/
+.header{
+	background: transparent;
+	margin: auto;
+	height: 80px;
+	position: relative;
+}
+
+.header h2{
+	font-family: "黑体";
+	margin-left: 100px;
+}
+
+/*content part*/
+.content{
+	background: transparent;
+	margin: auto;
+	min-height: 600px;
+	position: relative;
+	border-top: solid 1px black;
+	border-bottom: solid 1px black;
+}
+
+.content-left{
+	width: 200px;
+	min-height: 200px;
+	margin-left: 0;
+	height: auto;
+	float: left;
+	text-align: center
+}
+
+.content-left .photo-image {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.content-left .photo-image img {
+	display: block;
+	margin: auto;
+}
+
+.content-left .photo-image span {
+	display: block;
+	margin: 10px;
+}
+
+.content-right{
+	width: auto;;
+	height: auto;
+	min-height: 300px;
+	margin-left: 0;
+	float: left;
+}
+
+.footer{
+	background: #ddd;
+	height: 120px;
+	margin: auto;
+	position: relative;
+}

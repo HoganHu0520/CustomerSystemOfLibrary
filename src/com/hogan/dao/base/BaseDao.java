@@ -1,18 +1,10 @@
 package com.hogan.dao.base;
 
-import java.util.List;
-
-import org.eclipse.jdt.internal.compiler.ast.ThisReference;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.ietf.jgss.Oid;
-
-import sun.security.jca.GetInstance.Instance;
 
 import com.hogan.dao.proxy.DaoProxy;
 import com.hogan.model.base.BaseModel;
-import com.hogan.model.common.Pagination;
 import com.hogan.util.HibernateUtil;
 
 public class BaseDao<T extends BaseModel> {
