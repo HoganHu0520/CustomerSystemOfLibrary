@@ -68,3 +68,15 @@ body{
 	margin: auto;
 	position: relative;
 }
+
+.pagination {
+	display: block;
+}
+
+.pagination-info {
+	float: left;
+}
+
+.pagination-list {
+	float: right;
+}

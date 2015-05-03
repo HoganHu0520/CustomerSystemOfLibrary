@@ -34,9 +34,9 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public Pagination<BorrowRecord> getBorrowRecord(
-			Pagination<BorrowRecord> pagination) {
+			Pagination<BorrowRecord> pagination, Integer userId) {
 		Pagination<BorrowRecord> resultPagination = borrowRecordDao
-				.query(pagination);
+				.query(pagination, userId);
 
 		for (BorrowRecord itemBorrowRecord : pagination.getResults()) {
 			User user = new User();

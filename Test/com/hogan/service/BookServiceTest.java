@@ -18,7 +18,8 @@ public class BookServiceTest {
 	@Test
 	public void getBorrowRecordTest() {
 		Pagination<BorrowRecord> pagination = bookService
-				.getBorrowRecord(new Pagination<BorrowRecord>());
+				.getBorrowRecord(new Pagination<BorrowRecord>(), 4);
 		System.out.println(pagination.getCurrentCount());
+		System.out.println(pagination.getTotalCount());
 	}
 }

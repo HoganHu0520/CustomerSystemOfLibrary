@@ -14,7 +14,7 @@ public class BorrowRecordDao extends BaseDao<BorrowRecord> {
 	public BorrowRecordDao() {
 	}
 
-	public Pagination<BorrowRecord> query(Pagination<BorrowRecord> pagination) {
+	public Pagination<BorrowRecord> query(Pagination<BorrowRecord> pagination, Integer userId) {
 		Pagination<BorrowRecord> resultPagination = pagination;
 
 		List<BorrowRecord> list = this.executeActionWithResult(new DaoProxy() {
@@ -22,7 +22,7 @@ public class BorrowRecordDao extends BaseDao<BorrowRecord> {
 			@Override
 			public void action(Session session) {
 				Query query = session
-						.createQuery("select borrowRecord from BorrowRecord borrowRecord")
+						.createQuery("select borrowRecord from BorrowRecord borrowRecord where borrowRecord.userId = " + userId + " and borrowRecord.givebackDate = null")
 						.setFirstResult(
 								(pagination.getPageIndex() - 1)
 										* pagination.getPageSize())
@@ -30,8 +30,21 @@ public class BorrowRecordDao extends BaseDao<BorrowRecord> {
 				result = query.list();
 			}
 		});
-
 		resultPagination.setResults(list);
+		
+		Long totalCount = this.executeActionWithResult(new DaoProxy() {
+			
+			@Override
+			public void action(Session session) {
+				Query query = session
+						.createQuery("select count(borrowRecord) from BorrowRecord borrowRecord where borrowRecord.userId = " 
+				+ userId + " and borrowRecord.givebackDate = null");
+				result = query.uniqueResult();
+			}
+		});
+		
+		resultPagination.setTotalCount(totalCount.intValue());
+		
 		return resultPagination;
 	}
 }

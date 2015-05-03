@@ -56,7 +56,6 @@ public class BaseDao<T extends BaseModel> {
 		proxy.action(session);
 		session.getTransaction().commit();
 		session.close();
-		sessionFactory.close();
 	}
 
 	@SuppressWarnings("unchecked")

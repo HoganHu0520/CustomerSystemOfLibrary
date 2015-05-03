@@ -60,9 +60,10 @@
 						<th>操作</th>
 					</tr>
 					<%
-						int i = 0;
 						Pagination<BorrowRecord> pagination = (Pagination<BorrowRecord>)request.getAttribute("pagination");
 						List<BorrowRecord> borrowRecordList = pagination.getResults();
+						
+						int i = (pagination.getPageIndex() - 1) * pagination.getPageSize();
 						for(BorrowRecord borrowRecord : borrowRecordList) {
 							i++;
 					%>
@@ -92,6 +93,57 @@
 						}
 					%>
 				</table>
+				<div class="pagination">
+					<div class="pagination-info">
+						<span>当前页/总页数: </span>
+						<span style="margin-left: 10px; margin-right: 20px;"> <%=pagination.getPageIndex() %>/<%=pagination.getPageCount() %></span>
+						<span>总条数： <%=pagination.getTotalCount() %></span>
+					</div>
+					
+					<%
+					if(pagination.getPageCount() > 1) {
+					%>
+					<div class="btn-toolbar pagination-list" role="toolbar" aria-label="...">
+						<div class="btn-group" role="group" aria-label="...">
+						<%
+							if (pagination.getPageIndex() == 1) {
+						%>
+							<a href="#" class="btn btn-default disabled">首页</a>
+						<%
+							} else {
+						%>
+							<a href="<%=mybookUrl %>/borrowRecord?page=1" class="btn btn-primary">首页</a>
+						<% 	} %>
+						</div>
+						<div class="btn-group" role="group" aria-label="...">
+						<%
+							for(int index = 1; index <= pagination.getPageCount(); index++) {
+								if (index != pagination.getPageIndex()) {
+						%>
+									<a href="<%=mybookUrl %>/borrowRecord?page=<%=index %>" class="btn btn-primary"><%=index %></a>
+						<%
+								} else {
+						%>
+									<a href="#" class="btn btn-default disabled"><%=index %></a>
+						<%
+								}
+							}
+						%>
+						</div>
+						<div class="btn-group" role="group" aria-label="...">
+						<%
+							if (pagination.getPageIndex() == pagination.getPageCount()) {
+						%>
+							<a href="#" class="btn btn-default disabled">尾页</a>
+						<%
+							} else {
+						%>
+							<a href="<%=mybookUrl %>/borrowRecord?page=<%=pagination.getPageCount() %>" class="btn btn-primary">尾页</a>
+						<% 	} %>
+						</div>
+					</div>
+					<%} %>
+				</div>
 			</div>
 		</div>
 	</div>
