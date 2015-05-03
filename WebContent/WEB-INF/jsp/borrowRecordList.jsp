@@ -21,6 +21,7 @@
 	<!-- Bootstrap -->
 	<link href="<%=PropertyUtil.getStaticUrl()%>/css/bootstrap.min.css" rel="stylesheet">
 	<link href="<%=PropertyUtil.getStaticUrl()%>/style/myBook.css" rel="stylesheet">
+	<link href="<%=PropertyUtil.getStaticUrl()%>/style/borrowRecordList.css" rel="stylesheet">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insert title here</title>
 </head>
@@ -69,7 +70,11 @@
 					%>
 					<tr>
 						<td><%=i %></td>
-						<td><%=borrowRecord.getBook().getTitle() %></td>
+						<td>
+							<a class="table-link" href="<%=mybookUrl %>/bookInfo?id=<%=borrowRecord.getBook().getId() %>">
+								<%=borrowRecord.getBook().getTitle() %>
+							</a>
+						</td>
 						<td><%=DateUtil.formatOnlyDate(borrowRecord.getBorrowDate()) %></td>
 						<% int dayDiff = DateUtil.getDayDiff(borrowRecord.getBorrowDate(), new Date()); %>
 						<td><%=dayDiff %></td>

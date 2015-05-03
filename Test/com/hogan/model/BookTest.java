@@ -50,10 +50,11 @@ public class BookTest {
 		Book book1 = new Book();
 		book1.setId(5);
 		Book book2 = new Book();
-		book1.setId(7);
+		book2.setId(7);
 		Book book11 = bookDao.getById(book1);
 		Book book22 = bookDao.getById(book2);
 		System.out.println(book11);
 		System.out.println(book22);
 	}
+	
 }

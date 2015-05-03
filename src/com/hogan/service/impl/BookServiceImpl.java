@@ -53,4 +53,11 @@ public class BookServiceImpl implements BookService {
 		return resultPagination;
 	}
 
+	@Override
+	public Book getBookInfo(Integer bookId) {
+		Book book = new Book();
+		book.setId(bookId);
+		return bookDao.getById(book);
+	}
+
 }

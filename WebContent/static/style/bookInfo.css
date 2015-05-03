@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+.book-info {
+	margin: 20px;
+}
+
+.book-info-top {
+	overflow: hidden;
+}
+
+.book-img {
+	height: 350px;
+	width: 350px;
+	border-radius: 5px;
+	border-color: #000;
+	border-style: solid;
+	border: 1px;
+	float: left;
+}
+
+.book-img img {
+	width: 350px;
+}
+
+.book-lable, .book-lable-info {
+	display: inline-block;
+	width: 150px;
+	text-align: left;
+}
+
+.book-info-bottom {
+	margin-top: 20px;
+	clear: both;
+}
+
+.book-profile {
+	margin-left: 370px;
+	margin-top: 80px;
+}

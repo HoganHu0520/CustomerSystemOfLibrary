@@ -80,4 +80,8 @@ public class Book extends BaseModel {
 		this.imageUrl = imageUrl;
 	}
 
+	@Override
+	public String toString() {
+		return this.title + "\n" + this.author + "\n" + this.discription;
+	}
 }
