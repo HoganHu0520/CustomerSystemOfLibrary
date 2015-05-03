@@ -20,6 +20,8 @@
         <property name="show_sql">true</property>
 
         <mapping class="com.hogan.model.User"/> 
+        <mapping class="com.hogan.model.Book"/>
+        <mapping class="com.hogan.model.BorrowRecord"/>
 
     </session-factory>
 

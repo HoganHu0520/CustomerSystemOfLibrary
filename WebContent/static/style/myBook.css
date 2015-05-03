@@ -55,8 +55,11 @@ body{
 	width: auto;;
 	height: auto;
 	min-height: 300px;
-	margin-left: 0;
-	float: left;
+	margin-left: 200px;
+}
+
+.content-info{
+	margin: 20px;
 }
 
 .footer{

@@ -29,7 +29,7 @@ public class UserTest {
 	@Test
 	public void getUserTest() {
 		User user = new User();
-		user.setId(3);
+		user.setId(4);
 		
 		User resultUser = userDao.getById(user);
 		System.out.println(resultUser.getName() + " " + resultUser.getPassword());

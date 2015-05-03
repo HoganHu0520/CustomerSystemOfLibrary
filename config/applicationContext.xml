@@ -10,5 +10,8 @@
 	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
 	
 	<bean name="userDao" class="com.hogan.dao.UserDao"></bean>
+	<bean name="bookDao" class="com.hogan.dao.BookDao"></bean>
+	<bean name="borrowRecordDao" class="com.hogan.dao.BorrowRecordDao"></bean>
 	<bean name="userService" class="com.hogan.service.impl.UserServiceImpl"></bean>
+	<bean name="bookService" class="com.hogan.service.impl.BookServiceImpl"></bean>
 </beans>
