@@ -21,6 +21,7 @@ public class BookController extends BaseController {
 
 	private final String MYBOOK_JSP = "myBook";
 	private final String BORROW_RECORD_INFO_JSP = "borrowRecordList";
+	private final String BORROW_RECORD_HISTORY_JSP = "borrowRecordHistory";
 	private final String BOOK_INFO_JSP = "bookInfo";
 
 	private BookService bookService;
@@ -48,6 +49,20 @@ public class BookController extends BaseController {
 		modelMap.addAttribute("pagination", pagination);
 		
 		return BORROW_RECORD_INFO_JSP;
+	}
+	
+	@RequestMapping(value = "/borrowRecordHistory", method = RequestMethod.GET)
+	public String loadBorrowRecordHistoryPage(
+			@RequestParam(value = "page", defaultValue = "1") Integer pageInteger,
+			ModelMap modelMap, HttpSession session) {
+		User user = (User) session.getAttribute(Constants.USER);
+		Pagination<BorrowRecord> parameterPagination = new Pagination<BorrowRecord>();
+		parameterPagination.setPageIndex(pageInteger);
+		Pagination<BorrowRecord> pagination = bookService.getBorrowRecordHistory(
+				parameterPagination, user.getId());
+		modelMap.addAttribute("pagination", pagination);
+		
+		return BORROW_RECORD_HISTORY_JSP;
 	}
 
 	@RequestMapping(value = "/bookInfo", method = RequestMethod.GET)

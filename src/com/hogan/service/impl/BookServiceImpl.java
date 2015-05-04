@@ -60,4 +60,25 @@ public class BookServiceImpl implements BookService {
 		return bookDao.getById(book);
 	}
 
+	@Override
+	public Pagination<BorrowRecord> getBorrowRecordHistory(
+			Pagination<BorrowRecord> pagination, Integer userId) {
+		Pagination<BorrowRecord> resultPagination = borrowRecordDao
+				.queryHistory(pagination, userId);
+
+		for (BorrowRecord itemBorrowRecord : pagination.getResults()) {
+			User user = new User();
+			user.setId(itemBorrowRecord.getUserId());
+
+			User userResult = userDao.getById(user);
+			Book book = new Book();
+			book.setId(itemBorrowRecord.getBookId());
+			Book bookReuslt = bookDao.getById(book);
+			itemBorrowRecord.setUser(userResult);
+			itemBorrowRecord.setBook(bookReuslt);
+		}
+
+		return resultPagination;
+	}
+
 }
