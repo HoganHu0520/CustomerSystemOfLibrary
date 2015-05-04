@@ -27,6 +27,10 @@ public class AppContext {
 		}
 		return context;
 	}
+	
+	public static void initContenxt() {
+		appContext.remove();
+	}
 
 	public void clear() {
 		AppContext context = appContext.get();

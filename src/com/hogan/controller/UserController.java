@@ -2,6 +2,8 @@ package com.hogan.controller;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -89,4 +91,12 @@ public class UserController extends BaseController {
 		}
 		return modelAndView;
 	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.POST)
+    public String logout(HttpSession session) {
+    	session.removeAttribute(Constants.USER);
+    	AppContext.initContenxt();
+    	
+    	return LOGIN_JSP;
+    }
 }

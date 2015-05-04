@@ -35,7 +35,9 @@
 			<div class="photo-image">
 				<img src="<%=PropertyUtil.getStaticUrl()%>/images/MyBooks_IMG_DefaultAvatar_80x80.png"/>
 				<span><%=StringUtil.htmlEncode(user.getName())%></span>
-				<button type="button" class="btn btn-danger">退出</button>
+				<form id="logoutForm" action="<%=PathUtil.getFullPath("user/logout")%>" method="POST">
+					<button type="button" class="btn btn-danger" onclick="logout()">退出</button>
+				</form>
 			</div>
 			<div class="nav-block">
 				<%
@@ -141,5 +143,6 @@
 	<div class="footer"></div>
 	<script src="<%=PropertyUtil.getStaticUrl()%>/js/jquery-2.1.3.min.js"></script>
 	<script src="<%=PropertyUtil.getStaticUrl()%>/js/bootstrap.min.js"></script>
+	<script src="<%=PropertyUtil.getStaticUrl()%>/js/book.js"></script>
 </body>
 </html>
